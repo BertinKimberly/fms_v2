@@ -31,32 +31,6 @@ QUALIFICATION_SCALER_PATH = "models/qualification_scaler.pkl"
 # Create models directory if it doesn't exist
 os.makedirs("models", exist_ok=True)
 
-# Dummy data for training
-salary_data = [
-    {"experience": 1, "skills": 3, "project_complexity": 1, "salary": 40000},
-    {"experience": 2, "skills": 4, "project_complexity": 2, "salary": 50000},
-    {"experience": 3, "skills": 5, "project_complexity": 1, "salary": 65000},
-    {"experience": 4, "skills": 4, "project_complexity": 2, "salary": 70000},
-    {"experience": 5, "skills": 6, "project_complexity": 3, "salary": 85000},
-    {"experience": 6, "skills": 7, "project_complexity": 2, "salary": 95000},
-    {"experience": 7, "skills": 8, "project_complexity": 3, "salary": 105000},
-    {"experience": 8, "skills": 6, "project_complexity": 2, "salary": 110000},
-    {"experience": 9, "skills": 7, "project_complexity": 3, "salary": 120000},
-    {"experience": 10, "skills": 9, "project_complexity": 3, "salary": 135000},
-]
-
-qualification_data = [
-    {"experience": 1, "skills": 2, "project_type": 1, "qualified": "Low"},
-    {"experience": 1, "skills": 4, "project_type": 2, "qualified": "Medium"},
-    {"experience": 2, "skills": 3, "project_type": 1, "qualified": "Medium"},
-    {"experience": 3, "skills": 2, "project_type": 3, "qualified": "Medium"},
-    {"experience": 4, "skills": 3, "project_type": 2, "qualified": "Medium"},
-    {"experience": 5, "skills": 4, "project_type": 1, "qualified": "High"},
-    {"experience": 6, "skills": 5, "project_type": 3, "qualified": "High"},
-    {"experience": 7, "skills": 3, "project_type": 2, "qualified": "Medium"},
-    {"experience": 8, "skills": 6, "project_type": 3, "qualified": "High"},
-    {"experience": 9, "skills": 7, "project_type": 1, "qualified": "High"},
-]
 
 # Convert data to DataFrames
 salary_df = pd.DataFrame(salary_data)
