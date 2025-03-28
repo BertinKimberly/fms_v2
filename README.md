@@ -1,69 +1,116 @@
-# Welcome to your Lovable project
 
-## Project info
+# PredictlyPro - Freelance Management System
 
-**URL**: https://lovable.dev/projects/96c08536-4f32-4526-b5ba-097d14e83b75
+PredictlyPro is a full-stack application for freelance management with machine learning capabilities. The system can predict freelancer salaries and assess qualification for projects based on experience, skills, and project requirements.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- User authentication
+- Dashboard with data visualization
+- Freelancer management
+- Project management
+- Invoice tracking
+- ML-powered salary prediction
+- ML-powered qualification assessment
+- Export training data as CSV
 
-**Use Lovable**
+## Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/96c08536-4f32-4526-b5ba-097d14e83b75) and start prompting.
+- **Frontend**: React, TypeScript, Tailwind CSS, shadcn/ui, recharts
+- **Backend**: FastAPI, Python
+- **Machine Learning**: scikit-learn (Random Forest models)
+- **Database**: PostgreSQL (configurable in production)
 
-Changes made via Lovable will be committed automatically to this repo.
+## Getting Started
 
-**Use your preferred IDE**
+### Prerequisites
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- Node.js (v16+)
+- Python (v3.8+)
+- pip (Python package manager)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Installation
 
-Follow these steps:
+#### Frontend
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+1. Install dependencies:
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+```bash
+npm install
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
+2. Run the development server:
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The frontend will be available at http://localhost:5173
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+#### Backend
 
-**Use GitHub Codespaces**
+1. Navigate to the backend directory:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+cd backend
+```
 
-## What technologies are used for this project?
+2. Create a virtual environment:
 
-This project is built with .
+```bash
+python -m venv env
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+3. Activate the virtual environment:
 
-## How can I deploy this project?
+```bash
+# On Windows
+env\Scripts\activate
+# On macOS/Linux
+source env/bin/activate
+```
 
-Simply open [Lovable](https://lovable.dev/projects/96c08536-4f32-4526-b5ba-097d14e83b75) and click on Share -> Publish.
+4. Install dependencies:
 
-## I want to use a custom domain - is that possible?
+```bash
+pip install -r requirements.txt
+```
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+5. Run the FastAPI server:
+
+```bash
+uvicorn main:app --reload
+```
+
+The API will be available at http://localhost:8000
+
+### API Documentation
+
+Once the backend is running, you can access the auto-generated API documentation at:
+
+- Swagger UI: http://localhost:8000/docs
+- ReDoc: http://localhost:8000/redoc
+
+## Machine Learning Models
+
+The application uses two main ML models:
+
+1. **Salary Prediction**: Random Forest Regressor that estimates a freelancer's appropriate salary based on experience, skills, and project complexity.
+
+2. **Qualification Assessment**: Random Forest Classifier that predicts if a freelancer is qualified for a project based on experience, skills, and project type.
+
+The models are trained on initial dummy data, but in a production environment, they would be trained on real historical data.
+
+## Production Deployment
+
+For production deployment:
+
+1. Set up a PostgreSQL database
+2. Configure environment variables
+3. Deploy the FastAPI backend to a server
+4. Deploy the React frontend to a static hosting service
+5. Set up CORS properly in the backend
+
+## License
+
+This project is licensed under the MIT License.

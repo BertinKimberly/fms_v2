@@ -8,7 +8,10 @@ import { Button } from '@/components/ui/button';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { ScatterChart, Scatter, XAxis, YAxis, ZAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } from 'recharts';
+import { 
+  ScatterChart, Scatter, XAxis, YAxis, ZAxis, CartesianGrid, Tooltip, 
+  Legend, ResponsiveContainer, LineChart, Line, Cell 
+} from 'recharts';
 import { AlertCircle, Download, HelpCircle, Info } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 
@@ -151,8 +154,24 @@ const Predictions = () => {
   };
   
   const handleExportCSV = () => {
-    // This would typically generate and download a CSV file
-    // For the mock version, we'll just show a toast
+    // Generate CSV content from the training data
+    const salaryCSV = [
+      ['Experience', 'Skills', 'Salary'],
+      ...salaryData.map(row => [row.experience, row.skills, row.salary].join(','))
+    ].join('\n');
+    
+    // Create a downloadable blob
+    const blob = new Blob([salaryCSV], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    
+    // Create a download link and trigger it
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', 'salary_training_data.csv');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
     toast({
       title: "CSV Exported",
       description: "Training data has been exported to CSV format.",
